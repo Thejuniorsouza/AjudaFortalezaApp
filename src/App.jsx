@@ -4,7 +4,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import NavBar from "./components/Navbar/Navbar.jsx"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Explore from "./components/Explore/Explore";
-import Cardgroup from "./components/Card/Card";
+// import Cardgroup from "./components/Card/Card";
 import 'typeface-montserrat';
 
 function App() {

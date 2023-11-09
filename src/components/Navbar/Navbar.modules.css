@@ -12,14 +12,17 @@
     padding-bottom: 150px;
     display: inline-block;
 }
+
+.navbar-brand img{
+    padding: 0 0.5em 0.5em 0em;
+}
+
 .customBrand {
     font-family: 'Montserrat', sans-serif;
     font-size: 32px;
     font-weight: 700;
     text-decoration: none;
-    color: black;
 }
-
 
 .navbar {
     position: relative;
@@ -28,10 +31,32 @@
     font-weight: 500;
     letter-spacing: 0.5px;
 }
+
 .navbar:hover {
     color: #13547a;
 }
+
 .navbar a {
     color: white;
+
+}
+
+@media (max-width: 398px) {
+    .customBrand {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .navcontainer {
+    display: flex!important;
+    flex-basis: auto;
+    align-items: center;
+    justify-content: space-between;
+    }
+
 
 }
