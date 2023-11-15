@@ -7,9 +7,31 @@ import Explore from "./components/Explore/Explore";
 //import Cardgroup from "./components/Card/Card";
 import Button from "./components/Button/Button.jsx";
 import "typeface-montserrat";
+import { getFirestore } from "firebase/firestore";
+import { useEffect } from "react";
+import app from "./utils/firebase.js"
+import { collection, getDocs } from "firebase/firestore"; 
+import TimeLine from "./components/Timeline/Timeline.jsx";
+
 
 function App() {
-    // const [count, setCount] = useState(0);
+    // const [database, setDatabase] = useState(0);
+
+    useEffect(() => {
+        const fetchData = async() => {
+            const db = getFirestore(app);
+            // setDatabase(db)
+            const querySnapshot = await getDocs(collection(db, "instituicoes"));
+            querySnapshot.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data().nome}`);
+            });    
+        }
+        fetchData();
+    },[]) 
+
+
+
+
 
     return (
         <>
@@ -18,6 +40,7 @@ function App() {
             <Button type="submit">Procurar</Button>
             <Explore />
             {/* <Cardgroup/> */}
+            <TimeLine />
             <Footer />
         </>
     );
