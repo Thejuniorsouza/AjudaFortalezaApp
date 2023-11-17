@@ -12,10 +12,11 @@ function NavBar() {
     
     <Navbar expand="lg" className="bg-body-tertiary gap-3 px-3">
       <Container>
-      <a className="navbar-brand" href="index.html">
+      <Navbar.Brand className="navbar-brand" href="index.html">
         <img src={back} alt='logo'></img>
-        <Navbar.Brand bsPrefix="customBrand" style={{ color: 'black' }} href="#home">AjudaFortaleza</Navbar.Brand>
-      </a>
+        <h4 className="titleBrand" style={{ color: 'black' }}>AjudaFortaleza</h4>
+      </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse  id="basic-navbar-nav">
           <Nav bsPrefix='navcontainer' className="flex-grow-1 justify-content-evenly" >

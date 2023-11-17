@@ -13,11 +13,15 @@
     display: inline-block;
 }
 
+.navbar-brand{
+    display: flex;
+}
+
 .navbar-brand img{
     padding: 0 0.5em 0.5em 0em;
 }
 
-.customBrand {
+.titleBrand {
     font-family: 'Montserrat', sans-serif;
     font-size: 32px;
     font-weight: 700;

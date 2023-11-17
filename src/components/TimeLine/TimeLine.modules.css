@@ -36,12 +36,6 @@ body {
 }
 
 
-/* .bg-timeline{
-    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-    max-width: 100%;
-    margin: 0;
-} */
-
 @media(max-width: 480px) {
     
     .title-timeline {

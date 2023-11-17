@@ -11,7 +11,7 @@ import { getFirestore } from "firebase/firestore";
 import { useEffect } from "react";
 import app from "./utils/firebase.js"
 import { collection, getDocs } from "firebase/firestore"; 
-import TimeLine from "./components/Timeline/Timeline.jsx";
+import TimeLine from "./components/TimeLine/Timeline.jsx";
 
 
 function App() {

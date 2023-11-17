@@ -2,9 +2,8 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import './TimeLine.modules.css'
 import '../../img/search.svg'
-import SearchIcon from '@mui/icons-material/Search';
-import AddCardIcon from '@mui/icons-material/AddCard';
-import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
+import { Search, Buildings, CreditCard } from 'react-bootstrap-icons';
+
 
 
 function TimeLine () {
@@ -24,7 +23,7 @@ function TimeLine () {
     iconStyle={{ background: '#80d0c7', color: '#fff' }}
     iconClassName={ "icon-timeline" }
     visible={ false }
-    icon={<SearchIcon />}
+    icon={<Search />}
   >
     <h3 className="vertical-timeline-element-title">Procure por uma ONG ou entidade que você se identifique.</h3>
     <p>
@@ -37,7 +36,7 @@ function TimeLine () {
     contentStyle={{ background: 'transparent', color: '#fff' }}
     iconStyle={{ background: '#80d0c7', color: '#fff' }}
     visible={ false }
-    icon={<AssuredWorkloadIcon />}
+    icon={<Buildings />}
   >
     <h3 className="vertical-timeline-element-title">Conheça e veja as necessidades dela.</h3>
     <p>
@@ -50,7 +49,7 @@ function TimeLine () {
     contentStyle={{ background: 'transparent', color: '#fff' }}
     iconStyle={{ background: '#80d0c7', color: '#fff' }}
     visible={ false }
-    icon={<AddCardIcon />}
+    icon={<CreditCard />}
   >
     <h3 className="vertical-timeline-element-title">Doe a quantia que quiser.</h3>
     <p>
