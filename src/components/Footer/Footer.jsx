@@ -8,10 +8,10 @@ import back from "../../img/back.svg"
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            <a className="navbar-brand" href="index.html">
+            <Navbar.Brand className="navbar-brand" href="index.html">
                 <img src={back} alt='logo'></img>
-                <Navbar.Brand bsPrefix="customBrand" style={{ color: 'black' }} href="#home">AjudaFortaleza</Navbar.Brand>
-            </a>
+                <h4 className="titleBrand" style={{ color: 'black' }}>AjudaFortaleza</h4>
+            </Navbar.Brand>
             <Nav bsPrefix='footerlinks' className="flex-grow-1 justify-content-evenly" >
             <p className="textinformation" style={{ color: 'black' }}>Links</p>
             <Nav.Link className={styles.navbar}  href="#home">HOME</Nav.Link>
