@@ -8,21 +8,3 @@
     padding-top: 150px;
     padding-bottom: 150px;
 }
-
-.myButton {
-    background: var(--custom-btn-bg-color) !important;
-    border: none !important;
-    border-radius: 100px !important;
-    color: #ffffff !important;
-    font-family: var(--title-font-family) !important;
-    font-size: 1.25rem !important;
-    font-weight: 600 !important;
-    padding: 0.75rem 1.25rem !important;
-    transition: all 0.3s !important;
-}
-
-.myButton:hover,
-.myButton:focus {
-    background: var(--custom-btn-bg-hover-color) !important;
-    border-color: transparent !important;
-}
