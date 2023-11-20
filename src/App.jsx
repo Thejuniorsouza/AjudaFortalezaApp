@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import app from "./utils/firebase.js"
 import { collection, getDocs } from "firebase/firestore"; 
 import TimeLine from "./components/TimeLine/Timeline.jsx";
+import FormAdd from "./components/Form/Form.jsx";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Hero />
             <Button type="submit">Procurar</Button>
             <Explore />
+            <FormAdd />
             {/* <Cardgroup/> */}
             <TimeLine />
             <Footer />

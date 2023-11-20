@@ -1,0 +1,37 @@
+
+.formulario {
+    font-family: Montserrat, sans-serif;
+}
+
+.BtnDropdown {
+    border-radius: 3rem;
+    color: blue;
+}
+
+@media (max-width: 1070px) {
+    .formulario {
+        padding: 1.87rem!important ;
+    }
+
+    .GroupCategory {
+    padding: 0!important;
+    }   
+
+    .formDropdown {
+        display: grid!important;
+    }
+
+    .dropdown {
+        max-width: 14.5rem;
+    }
+
+    .formCep {
+        display: grid;
+
+    }
+
+    .formStyle {
+        width: 100%!important;
+    }
+    
+}
