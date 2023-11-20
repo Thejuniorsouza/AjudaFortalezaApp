@@ -3,36 +3,14 @@
     --title-font-family:            'Montserrat', sans-serif;
 }
 
-.bg-body-tertiary {
-    
-    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-    position: relative;
-    overflow: hidden;
-    padding-top: 150px;
-    padding-bottom: 150px;
-    display: inline-block;
-}
-
-.navbar-brand{
-    display: flex;
-}
-
-.navbar-brand img{
-    padding: 0 0.5em 0.5em 0em;
-}
-
-.titleBrand {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    text-decoration: none;
+.navcontainer{
+    margin-bottom: -85px;
 }
 
 .navbar {
-    position: relative;
+    padding-top: 150px;
+    padding-bottom: 150px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
     letter-spacing: 0.5px;
 }
 
@@ -45,12 +23,10 @@
 
 }
 
-@media (max-width: 398px) {
-    .customBrand {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 20px;
+@media (max-width: 369px) {
+    .titleBrand {
+        font-size: 18px;
         font-weight: 700;
-        text-decoration: none;
     }
 }
 
