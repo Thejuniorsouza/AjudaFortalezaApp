@@ -1,0 +1,38 @@
+.card {
+    border-radius: 20px;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    overflow: hidden;
+    padding: 30px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.cardTitle {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: var(--title-font-family);
+}
+
+.cardText {
+    color: var(--p-color);
+    font-size: 20px;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5; /* Número de linhas após o qual o texto será cortado */
+    overflow: hidden;
+    line-height: 1.2em;
+    height: 6em; /* line-height * número de linhas */
+}
+
+.cardImg {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-top: 20px;
+}
