@@ -9,7 +9,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function GridComplexExample() {
   return (
-    <Form className={`${styles.Form} p-5 formulario mx-auto `}>
+    <Form className={`${styles.Form} formulario  p-5  mx-auto `}>
       <Container className='containerForm ms-Í'>
       <h6 className='fs-4 fw-bolder text-center' >Conhece uma entidade que você deseja cadastrar em nossa plataforma?</h6>
       <Container className="formDropdown d-flex align-items-end p-0 mb-3">
