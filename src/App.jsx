@@ -1,21 +1,16 @@
-// import { useState } from "react";
-import Hero from "./components/Hero/Hero.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import NavBar from "./components/Navbar/Navbar.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Explore from "./components/Explore/Explore";
-//import Cardgroup from "./components/Card/Card";
-import Button from "./components/Button/Button.jsx";
 import "typeface-montserrat";
 import { getFirestore } from "firebase/firestore";
 import { useEffect } from "react";
 import app from "./utils/firebase.js";
 import { collection, getDocs } from "firebase/firestore";
-import TimeLine from "./components/TimeLine/Timeline.jsx";
-import FormAdd from "./components/Form/Form.jsx";
+import { Outlet } from "react-router-dom";
+
 
 function App() {
-    // const [database, setDatabase] = useState(0);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,11 +27,7 @@ function App() {
     return (
         <>
             <NavBar />
-            <Hero />
-            <Explore />
-            <FormAdd />
-            {/* <Cardgroup/> */}
-            <TimeLine />
+                <Outlet />
             <Footer />
         </>
     );

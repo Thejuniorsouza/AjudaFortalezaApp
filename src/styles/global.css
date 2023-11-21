@@ -33,6 +33,10 @@ h1 {
     font-family: var(--title-font-family);
 }
 
+.content {
+    
+}
+
 h2 {
     font-size: 46px;
     font-weight: 700;

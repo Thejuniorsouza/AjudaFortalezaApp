@@ -6,8 +6,9 @@ import back from "../../img/back.svg"
 
 
 const Footer = () => {
+    
     return (
-        <footer className={styles.footer}>
+        <footer className={`${styles.footer} `}>
             <Navbar.Brand className={`d-flex align-items-sm-baseline justify-content-center`} href="index.html">
                 <img src={back} alt='logo' className='me-2'></img>
                 <h4 className="titleBrand fs-2 fw-bolder" style={{ color: 'black' }}>AjudaFortaleza</h4>

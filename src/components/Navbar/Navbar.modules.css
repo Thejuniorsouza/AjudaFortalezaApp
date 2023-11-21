@@ -14,8 +14,9 @@
     letter-spacing: 0.5px;
 }
 
-.navbar:hover {
+.navbar a:hover {
     color: #13547a;
+    transition: 0.7s;
 }
 
 .navbar a {
