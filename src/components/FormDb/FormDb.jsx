@@ -42,8 +42,8 @@ function FormDb() {
         // Redimenciona imagem
         const resizedImage = await readAndCompressImage(imageFile, {
             quality: 0.7,
-            maxWidth: 600,
-            maxHeight: 600,
+            maxWidth: 720,
+            maxHeight: 720,
             autoRotate: true,
         });
 
