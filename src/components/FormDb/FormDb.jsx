@@ -1,6 +1,8 @@
-
 import { useState } from "react";
 import { Form, Button, Col, Row, Container } from "react-bootstrap";
+import app from "../../utils/firebase.js";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function FormDb() {
     const [formData, setFormData] = useState({
@@ -20,6 +22,27 @@ function FormDb() {
         imagem: null,
     });
 
+    const addInstitution = async (data) => {
+        const db = getFirestore(app);
+        const docRef = await addDoc(collection(db, "instituicoes"), data);
+        return docRef.id;
+    };
+
+    const uploadImage = async (imageFile, nomeInstituicao) => {
+        if (!imageFile) return null;
+
+        // Gera novo nome de imagem
+        const fileExtension = imageFile.name.split(".").pop();
+        const imageName = `${nomeInstituicao
+            .toLowerCase()
+            .replace(/\s/g, "-")}-${Date.now()}.${fileExtension}`;
+
+        const storage = getStorage(app);
+        const storageRef = ref(storage, `images/${imageName}`);
+        await uploadBytes(storageRef, imageFile);
+        return getDownloadURL(storageRef);
+    };
+
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -35,9 +58,24 @@ function FormDb() {
         });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(formData);
+        try {
+            console.log("Tentando enviar imagem...");
+            const imageUrl = await uploadImage(
+                formData.imagem,
+                formData.nomeInstituicao
+            );
+            console.log(`Imagem hospedada no link: ${imageUrl}`);
+            const dadosInstituicao = {
+                ...formData,
+                imagem: imageUrl,
+            };
+            const docId = await addInstitution(dadosInstituicao);
+            console.log(`Documento criado com id: ${docId}`);
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     return (
@@ -172,7 +210,61 @@ function FormDb() {
                         </Form.Control>
                     </Col>
                 </Form.Group>
+                <Form.Group as={Row} className="mb-3">
+                    <Form.Label column sm={2}>
+                        Telefone
+                    </Form.Label>
+                    <Col sm={10}>
+                        <Form.Control
+                            type="text"
+                            name="telefone"
+                            value={formData.telefone}
+                            onChange={handleInputChange}
+                        />
+                    </Col>
+                </Form.Group>
 
+                <Form.Group as={Row} className="mb-3">
+                    <Form.Label column sm={2}>
+                        Website
+                    </Form.Label>
+                    <Col sm={10}>
+                        <Form.Control
+                            type="text"
+                            name="website"
+                            value={formData.website}
+                            onChange={handleInputChange}
+                        />
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row} className="mb-3">
+                    <Form.Label column sm={2}>
+                        Instagram
+                    </Form.Label>
+                    <Col sm={10}>
+                        <Form.Control
+                            type="text"
+                            name="instagram"
+                            value={formData.instagram}
+                            onChange={handleInputChange}
+                        />
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row} className="mb-3">
+                    <Form.Label column sm={2}>
+                        Twitter
+                    </Form.Label>
+                    <Col sm={10}>
+                        <Form.Control
+                            type="text"
+                            name="twitter"
+                            value={formData.twitter}
+                            onChange={handleInputChange}
+                        />
+                    </Col>
+                </Form.Group>
                 <Form.Group as={Row} className="mb-3">
                     <Form.Label column sm={2}>
                         Imagem
