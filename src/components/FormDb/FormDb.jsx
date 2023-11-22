@@ -115,7 +115,7 @@ function FormDb() {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Nome da Instituição
+                            Nome da Instituição*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -123,13 +123,14 @@ function FormDb() {
                                 name="nomeInstituicao"
                                 value={formData.nomeInstituicao}
                                 onChange={handleInputChange}
+                                required
                             />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Rua
+                            Rua*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -137,13 +138,14 @@ function FormDb() {
                                 name="rua"
                                 value={formData.rua}
                                 onChange={handleInputChange}
+                                required
                             />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Número
+                            Número*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -151,13 +153,14 @@ function FormDb() {
                                 name="numero"
                                 value={formData.numero}
                                 onChange={handleInputChange}
+                                required
                             />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Bairro
+                            Bairro*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -165,13 +168,14 @@ function FormDb() {
                                 name="bairro"
                                 value={formData.bairro}
                                 onChange={handleInputChange}
+                                required
                             />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Cidade
+                            Cidade*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -179,13 +183,14 @@ function FormDb() {
                                 name="cidade"
                                 value={formData.cidade}
                                 onChange={handleInputChange}
+                                required
                             />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Estado
+                            Estado*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -193,13 +198,14 @@ function FormDb() {
                                 name="estado"
                                 value={formData.estado}
                                 onChange={handleInputChange}
+                                required
                             />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            CEP
+                            CEP*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -207,13 +213,14 @@ function FormDb() {
                                 name="cep"
                                 value={formData.cep}
                                 onChange={handleInputChange}
+                                required
                             />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Categoria
+                            Categoria*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -221,8 +228,11 @@ function FormDb() {
                                 name="categoria"
                                 value={formData.categoria}
                                 onChange={handleInputChange}
+                                required
                             >
-                                <option value="">Selecione...</option>
+                                <option value="" disabled>
+                                    Selecione...
+                                </option>
                                 <option value="Animais">Animais</option>
                                 <option value="Ajuda Humanitária">
                                     Ajuda Humanitária
@@ -329,20 +339,21 @@ function FormDb() {
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Imagem
+                            Imagem*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
                                 type="file"
                                 name="imagem"
                                 onChange={handleImageChange}
+                                required
                             />
                         </Col>
                     </Form.Group>
 
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
-                            Descrição
+                            Descrição*
                         </Form.Label>
                         <Col sm={10}>
                             <Form.Control
@@ -351,6 +362,7 @@ function FormDb() {
                                 value={formData.descricao}
                                 onChange={handleInputChange}
                                 rows={4}
+                                required
                             />
                         </Col>
                     </Form.Group>
