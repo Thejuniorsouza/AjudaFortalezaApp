@@ -16,7 +16,9 @@ function FormDb() {
         estado: "CE",
         cep: "",
         telefone: "",
+        email: "",
         website: "",
+        facebook: "",
         instagram: "",
         twitter: "",
         descricao: "",
@@ -93,7 +95,9 @@ function FormDb() {
                 estado: "CE",
                 cep: "",
                 telefone: "",
+                email: "",
                 website: "",
+                facebook: "",
                 instagram: "",
                 twitter: "",
                 descricao: "",
@@ -240,6 +244,21 @@ function FormDb() {
                             </Form.Control>
                         </Col>
                     </Form.Group>
+
+                    <Form.Group as={Row} className="mb-3">
+                        <Form.Label column sm={2}>
+                            E-mail
+                        </Form.Label>
+                        <Col sm={10}>
+                            <Form.Control
+                                type="text"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                            />
+                        </Col>
+                    </Form.Group>
+
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
                             Telefone
@@ -268,6 +287,19 @@ function FormDb() {
                         </Col>
                     </Form.Group>
 
+                    <Form.Group as={Row} className="mb-3">
+                        <Form.Label column sm={2}>
+                            Facebook
+                        </Form.Label>
+                        <Col sm={10}>
+                            <Form.Control
+                                type="text"
+                                name="facebook"
+                                value={formData.facebook}
+                                onChange={handleInputChange}
+                            />
+                        </Col>
+                    </Form.Group>
                     <Form.Group as={Row} className="mb-3">
                         <Form.Label column sm={2}>
                             Instagram
@@ -308,6 +340,20 @@ function FormDb() {
                         </Col>
                     </Form.Group>
 
+                    <Form.Group as={Row} className="mb-3">
+                        <Form.Label column sm={2}>
+                            Descrição
+                        </Form.Label>
+                        <Col sm={10}>
+                            <Form.Control
+                                as="textarea"
+                                name="descricao"
+                                value={formData.descricao}
+                                onChange={handleInputChange}
+                                rows={4}
+                            />
+                        </Col>
+                    </Form.Group>
                     <Button variant="primary" type="submit">
                         Enviar
                     </Button>
