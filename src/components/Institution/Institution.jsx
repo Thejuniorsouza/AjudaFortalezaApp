@@ -16,9 +16,26 @@ import {
 } from "react-bootstrap-icons";
 
 const Institution = ({ id }) => {
-    const [instituicao, setInstituicao] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const db = getFirestore(app); // 'app' é a sua configuração do Firebase
+    const [instituicao, setInstituicao] = useState({
+        bairro: "",
+        categoria: "",
+        cep: "",
+        cidade: "",
+        descricao: "Carregando...",
+        email: "",
+        estado: "",
+        facebook: "",
+        id: "",
+        imagem: "",
+        instagram: "",
+        nomeInstituicao: "Carregando...",
+        numero: "",
+        rua: "Carregando...",
+        telefone: "",
+        twitter: "",
+        website: "",
+    });
+    const db = getFirestore(app);
 
     useEffect(() => {
         const buscarInstituicao = async () => {
@@ -29,24 +46,34 @@ const Institution = ({ id }) => {
                 if (docSnap.exists()) {
                     setInstituicao(docSnap.data());
                 } else {
-                    console.log("Nenhum registro encontrado!");
+                    setInstituicao({
+                        bairro: "",
+                        categoria: "",
+                        cep: "",
+                        cidade: "",
+                        descricao: "",
+                        email: "",
+                        estado: "",
+                        facebook: "",
+                        id: "",
+                        imagem: "",
+                        instagram: "",
+                        nomeInstituicao: "404 - Não encontrado",
+                        numero: "",
+                        rua: "",
+                        telefone: "",
+                        twitter: "",
+                        website: "",
+                    });
                 }
             } catch (error) {
-                console.error("Erro ao buscar instituição:", error);
+                console.error(error);
             }
-            setLoading(false);
         };
 
         buscarInstituicao();
-    }, [id, db]); // Dependências do useEffect
+    }, [id, db]);
 
-    if (loading) {
-        return <div>Carregando...</div>;
-    }
-
-    if (!instituicao) {
-        return <div>Nenhum registro encontrado.</div>;
-    }
     return (
         <div>
             <div className={styles.hero}>
