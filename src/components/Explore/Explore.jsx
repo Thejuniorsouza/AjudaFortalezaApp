@@ -5,67 +5,90 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "../Card/Card";
 
-const animalsMock = [
-    {
-        id: 1,
-        title: "Abrigo São Lázaro",
-        description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        imgUrl: "https://www.fortaleza.ce.gov.br/images/images1/SCSP/2021/Abrigo_SaoLazaro/cachorros-abrigo-so-lzaro-animal-7.jpg",
-    },
-    {
-        id: 2,
-        title: "APA",
-        description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        imgUrl: "https://scontent.fjdo10-1.fna.fbcdn.net/v/t39.30808-6/401513116_675954111311187_6219632465597190954_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=IxLd_MkdLokAX8diOlg&_nc_ht=scontent.fjdo10-1.fna&oh=00_AfBxwqof_LU_56vRwSVEPhbE-2k4jE4EzAsdyV7mI65XUA&oe=6560576E",
-    },
-    {
-        id: 3,
-        title: "Lar TinTin",
-        description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        imgUrl: "https://diariodonordeste.verdesmares.com.br/image/contentid/policy:7.4555411:1631206570/lar-tintin.jpg?f=default&$p$f=101e323",
-    },
-];
+import { useEffect, useState } from "react";
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    getDocs,
+    collection,
+    query,
+    where,
+} from "firebase/firestore";
+import app from "../../utils/firebase.js";
 
-function Explore() {
+const Explore = () => {
+    const [destaques, setDestaques] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const db = getFirestore(app);
+
+    useEffect(() => {
+        const buscarDestaques = async () => {
+            try {
+                // Buscando lista de IDs
+                const docRef = doc(db, "destaques", "1");
+                const docSnap = await getDoc(docRef);
+                const instIDs = docSnap.data().ids.split(",");
+                // Buscando instituições dos IDs
+                const collectionRef = collection(db, "instituicoes");
+                const q = query(
+                    collectionRef,
+                    where("__name__", "in", instIDs)
+                );
+                const instSnap = await getDocs(q);
+                const instituicoes = instSnap.docs.map((doc) => ({
+                    ...doc.data(),
+                    id: doc.id,
+                }));
+                setDestaques(instituicoes);
+                setLoading(false);
+            } catch (error) {
+                console.error("Erro ao buscar destaques:", error);
+            }
+        };
+
+        buscarDestaques();
+    }, [db]);
+
     return (
         <div className="bg-white pt-5 pb-5">
-            <h2 className="text-center mb-4">Destaques</h2>
-            <Tabs
+            <h2 className="text-center mb-5">Destaques</h2>
+            {/* <Tabs
                 defaultActiveKey="animal"
                 id="tabs"
                 className="bg-transparent"
             >
                 <Tab eventKey="aju" title="Ajuda humanitária"></Tab>
-                <Tab eventKey="animal" title="Animais">
-                    <Container>
-                        <Row>
-                            {animalsMock.map((ong) => (
-                                <Col
-                                    key={ong.id}
-                                    className="mb-4"
-                                    lg={4}
-                                    md={6}
-                                    xs={12}
-                                >
-                                    <Card
-                                        title={ong.title}
-                                        description={ong.description}
-                                        imgUrl={ong.imgUrl}
-                                    />
-                                </Col>
-                            ))}
-                        </Row>
-                    </Container>
-                </Tab>
+                <Tab eventKey="animal" title="Animais"> */}
+            <Container>
+                <Row>
+                    {!loading &&
+                        destaques.map((ong) => (
+                            <Col
+                                key={ong.id}
+                                className="mb-4"
+                                lg={4}
+                                md={6}
+                                xs={12}
+                            >
+                                <Card
+                                    id={ong.id}
+                                    title={ong.nomeInstituicao}
+                                    description={ong.descricao}
+                                    tag={ong.categoria}
+                                    imgUrl={ong.imagem}
+                                />
+                            </Col>
+                        ))}
+                </Row>
+            </Container>
+            {/* </Tab>
                 <Tab eventKey="crianca" title="Crianças"></Tab>
                 <Tab eventKey="mulher" title="Mulheres"></Tab>
                 <Tab eventKey="saude" title="Saúde"></Tab>
-            </Tabs>
+            </Tabs> */}
         </div>
     );
-}
+};
 
 export default Explore;

@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home.jsx";
 import AddOng from "./routes/AddOng.jsx";
 import FormNewInst from "./routes/FormNewInst.jsx";
+import InstitutionRoute from "./routes/InstitutionRoute.jsx";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: "/FormNewInst",
                 element: <FormNewInst />,
+            },
+            {
+                path: "/instituicao/:id",
+                element: <InstitutionRoute />,
             },
         ],
     },
