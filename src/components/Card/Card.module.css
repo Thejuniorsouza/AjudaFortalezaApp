@@ -17,15 +17,15 @@
     font-family: var(--title-font-family);
 }
 .tag {
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
+    padding: 4px 8px;
+    border-radius: 20px;
     font-size: 1rem;
     font-family: var(--title-font-family);
     font-weight: 500;
     color: #fff;
 }
 .cardText {
+    margin-top: 10px;
     color: var(--p-color);
     font-size: 20px;
     font-weight: 400;
