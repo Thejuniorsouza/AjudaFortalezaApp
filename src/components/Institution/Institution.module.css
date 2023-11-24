@@ -1,0 +1,57 @@
+.hero {
+    background-image: linear-gradient(
+        15deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+    );
+    overflow: hidden;
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+.iconLink {
+    background: var(--secondary-color);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.iconLink:hover {
+    background: var(--primary-color);
+}
+
+.tagText {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--body-font-family);
+    margin-bottom: 0;
+}
+
+.text {
+    color: var(--p-color);
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: var(--body-font-family);
+}
+
+.title {
+    font-size: 46px;
+    font-weight: 700;
+    color: #fff;
+    font-family: var(--title-font-family);
+}
+
+.subtitle {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: var(--title-font-family);
+}
