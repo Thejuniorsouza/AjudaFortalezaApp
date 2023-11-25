@@ -2,7 +2,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Button from "../Button/Button";
-import styles from "../Form/Form.modules.css?inline";
+import styles from "./Form.module.css";
 import { Container } from "react-bootstrap";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
@@ -52,11 +52,8 @@ function GridComplexExample() {
         }
     };
     return (
-        <Form
-            onSubmit={handleSubmit}
-            className={`${styles.Form} formulario  p-5  `}
-        >
-            <Container className="ms-Í">
+        <Form onSubmit={handleSubmit} className={styles.formulario}>
+            <Container>
                 <h6 className="fs-4 fw-bolder text-center">
                     Conhece uma entidade que você deseja cadastrar em nossa
                     plataforma?

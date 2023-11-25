@@ -1,0 +1,13 @@
+.formulario {
+    font-family: Montserrat, sans-serif;
+    padding-top: 150px;
+    margin-bottom: 50px;
+}
+.categoria {
+    width: 10rem;
+}
+
+.buttonSubmit {
+    display: flex;
+    justify-content: center;
+}
