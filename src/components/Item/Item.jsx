@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 const Item = ({ instituicao }) => {
     function getTagColor(tag) {
         const colors = {
-            Animais: "#8d8800",
-            "Ajuda Humanitária": "#f4513f",
-            Educação: "#0faab5",
-            Saúde: "#3757ae",
-            "Meio Ambiente": "#649162",
-            "Direitos Humanos": "#ac60ac",
-            "Cultura e Arte": "#a46976",
-            "Desenvolvimento Comunitário": "#8d853f",
+            animais: "#8d8800",
+            "ajuda humanitária": "#f4513f",
+            educação: "#0faab5",
+            saúde: "#3757ae",
+            "meio ambiente": "#649162",
+            "direitos humanos": "#ac60ac",
+            "cultura e arte": "#a46976",
+            "desenvolvimento comunitário": "#8d853f",
         };
 
         return colors[tag] || "#777777"; // Cinza claro como cor padrão
@@ -48,7 +48,9 @@ const Item = ({ instituicao }) => {
                         <p className={styles.cardText}>
                             {instituicao.descricao}
                         </p>
-                        <p>{`${instituicao.rua}, ${instituicao.numero}, ${instituicao.bairro}, ${instituicao.cidade} (${instituicao.estado}) - ${instituicao.cep}`}</p>
+                        <p>
+                            {`${instituicao.rua}, ${instituicao.numero}, ${instituicao.bairro}, ${instituicao.cidade} (${instituicao.estado}) - ${instituicao.cep}`.toUpperCase()}
+                        </p>
                     </Col>
                 </Row>
             </Container>

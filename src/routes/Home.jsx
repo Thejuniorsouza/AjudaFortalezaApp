@@ -39,13 +39,13 @@ const Home = () => {
             );
         } else {
             // Realizar busca nos campos especificados
-            //const searchTerm = searchForm.toLowerCase();
+            const searchTerm = searchForm.toLowerCase();
             const campos = ["nomeInstituicao", "categoria", "bairro"];
             const promises = campos.map((campo) =>
                 getDocs(
                     query(
                         collection(firestore, "instituicoes"),
-                        where(campo, "==", searchForm)
+                        where(campo, "==", searchTerm)
                     )
                 )
             );
