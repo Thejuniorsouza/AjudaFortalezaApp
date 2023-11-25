@@ -1,27 +1,27 @@
-:root{
-    --body-font-family:             'Open Sans', sans-serif;
-    --title-font-family:            'Montserrat', sans-serif;
+:root {
+    --body-font-family: "Open Sans", sans-serif;
+    --title-font-family: "Montserrat", sans-serif;
 }
 
-.navcontainer{
+.navcontainer {
     margin-bottom: -85px;
 }
 
 .navbar {
     padding-top: 150px;
     padding-bottom: 150px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     letter-spacing: 0.5px;
 }
 
 .navbar a:hover {
     color: #13547a;
     transition: 0.7s;
+    text-decoration: none;
 }
 
 .navbar a {
     color: white;
-
 }
 
 @media (max-width: 369px) {
@@ -33,11 +33,9 @@
 
 @media (min-width: 992px) {
     .navcontainer {
-    display: flex!important;
-    flex-basis: auto;
-    align-items: center;
-    justify-content: space-between;
+        display: flex !important;
+        flex-basis: auto;
+        align-items: center;
+        justify-content: space-between;
     }
-
-
 }

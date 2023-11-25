@@ -10,6 +10,7 @@ import styles from "./Hero.module.css";
 const Hero = ({ searchForm, formHandler, handleSubmit }) => {
     return (
         <section
+            id="home"
             className={`${styles.hero} d-flex justify-content-center align-items-center`}
         >
             <Container>

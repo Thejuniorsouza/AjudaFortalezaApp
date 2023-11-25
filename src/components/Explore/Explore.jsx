@@ -51,7 +51,7 @@ const Explore = () => {
     }, [db]);
 
     return (
-        <div className="bg-white pt-5 pb-5">
+        <div id="highlights" className="bg-white pt-5 pb-5">
             <h2 className="text-center mb-5">Destaques</h2>
             {/* <Tabs
                 defaultActiveKey="animal"
