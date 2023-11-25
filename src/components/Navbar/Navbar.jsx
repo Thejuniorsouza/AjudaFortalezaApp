@@ -5,8 +5,10 @@ import "./Navbar.modules.css";
 // import styles from "./Navbar.modules.css";
 import back from "../../img/back.svg";
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
+import { Link as RouterLink } from "react-router-dom"; // Renomeando o Link do React Router DOM
+import { Link as ScrollLink } from "react-scroll"; // Renomeando o Link do React Scroll
+
+// import { NavHashLink } from "react-router-hash-link";
 
 function NavBar() {
     const [navBackground, setNavBackground] = useState(false);
@@ -25,6 +27,8 @@ function NavBar() {
         };
     }, []);
 
+    // AQUI EU ESTOU COMEÇANDO =====================>
+
     return (
         <Navbar
             expand="lg"
@@ -35,7 +39,15 @@ function NavBar() {
             className={`navcontainer sticky-top gap-3 px-3`}
         >
             <Container>
-                <Link className="text-decoration-none" to="/">
+                <ScrollLink
+                    className="text-decoration-none"
+                    to="home"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    style={{ cursor: "pointer" }}
+                >
                     <Navbar.Brand className="navbarBrand d-flex align-items-sm-baseline">
                         <img src={back} alt="logo" className="me-2"></img>
                         <h4
@@ -45,7 +57,7 @@ function NavBar() {
                             AjudaFortaleza
                         </h4>
                     </Navbar.Brand>
-                </Link>
+                </ScrollLink>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -53,36 +65,49 @@ function NavBar() {
                         bsPrefix="navcontainer"
                         className="flex-grow-1 justify-content-evenly"
                     >
-                        <Link
+                        <ScrollLink
                             className={`fs-7 fw-normal text-decoration-none`}
-                            to="/"
+                            activeClass="active"
+                            to="home"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            style={{ cursor: "pointer" }}
                         >
                             HOME
-                        </Link>
-                        <Link
+                        </ScrollLink>
+                        <ScrollLink
                             className={`fs-7 fw-normal text-decoration-none`}
-                            href="#linkListaDeOngs"
+                            activeClass="active"
+                            to="highlights"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            style={{ cursor: "pointer" }}
                         >
                             LISTA DE ONGS
-                        </Link>
-                        <NavHashLink
+                        </ScrollLink>
+                        <ScrollLink
                             className={`fs-7 fw-normal text-decoration-none`}
-                            to="/TimeLine"
+                            activeClass="active"
+                            to="timeLine"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            style={{ cursor: "pointer" }}
                         >
                             COMO FUNCIONA
-                        </NavHashLink>
-                        <Link
-                            className={`fs-7 fw-normal text-decoration-none`}
-                            href="#link"
-                        >
-                            LINKS
-                        </Link>
-                        <Link
+                        </ScrollLink>
+                        <RouterLink
                             className={`fs-7 fw-normal text-decoration-none`}
                             to="/AddOng"
+                            style={{ cursor: "pointer" }}
                         >
                             ADICIONE UMA ONG
-                        </Link>
+                        </RouterLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

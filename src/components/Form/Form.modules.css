@@ -1,39 +1,35 @@
-
 .formulario {
+    max-width: 972px;
     font-family: Montserrat, sans-serif;
     margin-top: 150px;
     margin-bottom: 50px;
 }
-
-.BtnDropdown {
-    border-radius: 3rem;
-    color: blue;
+.categoria {
+    width: 10rem;
 }
 
+.buttonSubmit {
+    display: flex;
+    justify-content: center;
+}
 @media (max-width: 1070px) {
     .formulario {
-        padding: 1.87rem!important ;
+        padding: 1.87rem !important ;
     }
-
-    .GroupCategory {
-    padding: 0!important;
-    }   
 
     .formDropdown {
-        display: grid!important;
-    }
-
-    .dropdown {
-        max-width: 14.5rem;
+        /* max-width: 4rem !important; */
+        display: grid !important;
     }
 
     .formCep {
         display: grid;
-
     }
 
     .formStyle {
-        width: 100%!important;
+        width: 100% !important;
     }
-    
+}
+
+@media (max-width: 1070px) {
 }

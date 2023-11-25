@@ -2,11 +2,13 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import styles from "./Footer.module.css";
 import back from "../../img/back.svg";
-import { Link } from "react-router-dom";
+import "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 const Footer = () => {
     return (
-        <footer className={`${styles.footer} `}>
+        <footer className={`${styles.footer}  `}>
             <Navbar.Brand
                 className={`d-flex align-items-sm-baseline justify-content-center`}
                 href="index.html"
@@ -21,27 +23,55 @@ const Footer = () => {
             </Navbar.Brand>
             <Nav
                 bsPrefix="footerlinks"
-                className="flex-grow-1 justify-content-evenly"
+                className="footerGrid ms-5 d-grid justify-content-around"
             >
                 <p className="fs-4 fw-bolder" style={{ color: "black" }}>
                     Links
                 </p>
-                <Nav.Link className="fs-6 fw-normal" href="#home">
+                <ScrollLink
+                    // className={`fs-7 fw-normal text-decoration-none`}
+                    activeClass="active"
+                    to="home"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    style={{ cursor: "pointer" }}
+                >
                     HOME
-                </Nav.Link>
-                <Nav.Link className="fs-6 fw-normal" href="#linkListaDeOngs">
+                </ScrollLink>
+                <ScrollLink
+                    // className={`fs-7 fw-normal text-decoration-none`}
+                    activeClass="active"
+                    to="highlights"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    style={{ cursor: "pointer" }}
+                >
                     LISTA DE ONGS
-                </Nav.Link>
-                <Nav.Link className="fs-6 fw-normal" href="#linkComoFunciona">
+                </ScrollLink>
+                <ScrollLink
+                    className={`fs-7 fw-normal text-decoration-none`}
+                    activeClass="active"
+                    to="timeLine"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    style={{ cursor: "pointer", color: "white" }}
+                >
                     COMO FUNCIONA
-                </Nav.Link>
-                <Nav.Link className="fs-6 fw-normal" href="#link">
-                    LINKS
-                </Nav.Link>
+                </ScrollLink>
+                <RouterLink
+                    className="fs-6 fw-normal text-decoration-none"
+                    style={{ color: "white" }}
+                    to="/FormNewInst"
+                >
+                    NOVA INSTITUIÇÃO
+                </RouterLink>
             </Nav>
-            <Link className="fs-6 fw-normal" to="/FormNewInst">
-                NOVA INSTITUIÇÃO
-            </Link>
             <Nav
                 bsPrefix="footerlinks"
                 className="flex-grow-1 justify-content-evenly"
