@@ -65,18 +65,13 @@ function NavBar() {
                         bsPrefix="navcontainer"
                         className="flex-grow-1 justify-content-evenly"
                     >
-                        <ScrollLink
-                            className={`fs-7 fw-normal text-decoration-none`}
-                            activeClass="active"
-                            to="home"
-                            spy={true}
-                            smooth={true}
-                            offset={-70}
-                            duration={500}
+                        <RouterLink
+                            className="fs-7 fw-normal text-decoration-none"
+                            to="/"
                             style={{ cursor: "pointer" }}
                         >
                             HOME
-                        </ScrollLink>
+                        </RouterLink>
                         <ScrollLink
                             className={`fs-7 fw-normal text-decoration-none`}
                             activeClass="active"
