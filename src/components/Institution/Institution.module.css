@@ -29,6 +29,7 @@
 }
 
 .tagText {
+    text-transform: capitalize;
     color: #fff;
     font-size: 1rem;
     font-weight: 400;
@@ -44,6 +45,7 @@
 }
 
 .title {
+    text-transform: capitalize;
     font-size: 46px;
     font-weight: 700;
     color: #fff;

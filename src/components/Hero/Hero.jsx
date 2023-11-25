@@ -7,7 +7,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "../Button/Button";
 import styles from "./Hero.module.css";
 
-const Hero = () => {
+const Hero = ({ searchForm, formHandler, handleSubmit }) => {
     return (
         <section
             id="home"
@@ -23,7 +23,7 @@ const Hero = () => {
                             Procure uma ONG ou entidade para conhecer
                         </h6>
                         <Form
-                            method="get"
+                            onSubmit={handleSubmit}
                             className="mt-4 pt-2 mb-lg-0 mb-5"
                             role="search"
                         >
@@ -38,6 +38,8 @@ const Hero = () => {
                                     id="keyword"
                                     placeholder="Digite aqui"
                                     aria-label="Search"
+                                    value={searchForm}
+                                    onChange={formHandler}
                                 />
                                 <Button type="submit">Procurar</Button>
                             </InputGroup>

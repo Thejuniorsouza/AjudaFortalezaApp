@@ -167,9 +167,9 @@ const Institution = ({ id }) => {
                                 {instituicao.descricao}
                             </p>
                             <h3 className={styles.subtitle}>Endereço</h3>
-                            <p
-                                className={styles.text}
-                            >{`${instituicao.rua}, ${instituicao.numero}, ${instituicao.bairro}, ${instituicao.cidade} (${instituicao.estado}) - ${instituicao.cep}`}</p>
+                            <p className={styles.text}>
+                                {`${instituicao.rua}, ${instituicao.numero}, ${instituicao.bairro}, ${instituicao.cidade} (${instituicao.estado}) - ${instituicao.cep}`.toUpperCase()}
+                            </p>
                         </Col>
                     </Row>
                 </Container>
